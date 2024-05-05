@@ -1,12 +1,24 @@
 import streamlit as st
 import pickle
+import base64
+
+st.title("Movie Verdict Prediction")
+# Load the GIF file
+with open(r"C:/Users/91913/Downloads/SL_MP_RF_PBL/giphy.gif", "rb") as f:
+    gif_data = f.read()
+    # Encode the binary data as base64
+    gif_base64 = base64.b64encode(gif_data).decode()
+
+# Display the GIF
+st.image(gif_data, caption='Your GIF Caption', use_column_width=True)
+
+# Streamlit app content
+
+# Add more Streamlit components here
 
 # Load the pre-trained model
 with open("Random Forest_model.pkl", 'rb') as file:
     model = pickle.load(file)
-
-# Streamlit app
-st.title("Movie Verdict Prediction")
 
 # Function to make predictions
 def predict_verdict(popularity, trend_popularity, actors_popularity, twitter_score, genre):
@@ -41,6 +53,6 @@ twitter_score = float(twitter_score)
 if st.sidebar.button("Predict"):
     verdict = predict_verdict(popularity, trend_popularity, actors_popularity, twitter_score, genre)
     if verdict == 0:
-        st.write("Prediction: FLOP, Need to Work on Positive Marketing.")
+        st.title("FLOP, Need to Work on Positive Marketing.")
     else:
-        st.write("Prediction: HIT, Sit Back and Enjoy. People are Liking it")
+        st.title("HIT, Sit Back and Enjoy. People are Liking it")
