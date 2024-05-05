@@ -4,7 +4,7 @@ import base64
 
 st.title("Movie Verdict Prediction")
 # Load the GIF file
-with open(r"C:/Users/91913/Downloads/SL_MP_RF_PBL/giphy.gif", "rb") as f:
+with open("giphy.gif", "rb") as f:
     gif_data = f.read()
     # Encode the binary data as base64
     gif_base64 = base64.b64encode(gif_data).decode()
