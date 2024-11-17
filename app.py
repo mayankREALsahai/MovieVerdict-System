@@ -2,6 +2,8 @@ import streamlit as st
 import pickle
 import base64
 
+#add title
+
 st.title("Movie Verdict Prediction")
 # Load the GIF file
 with open("giphy.gif", "rb") as f:
